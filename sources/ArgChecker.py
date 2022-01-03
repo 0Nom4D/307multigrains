@@ -12,7 +12,6 @@ class ArgChecker:
         self._args_list = list()
         if self.check_args(args) is False:
             self._args_list = None
-            pass
 
     def check_args(self, args: list) -> bool:
         for value in args:
