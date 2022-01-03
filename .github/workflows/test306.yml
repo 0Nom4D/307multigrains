@@ -1,0 +1,36 @@
+name: ProjectTests
+
+on: [push, pull_request]
+
+jobs:
+  TestProject:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.9.7
+
+      - name: Install Depedencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install python3-pip
+          /opt/hostedtoolcache/Python/3.9.7/x64/bin/python -m pip install --upgrade pip
+
+      - name: Launch Subject Tests
+        run: |
+          ./307multigrains 10 100 10 0 200 200 200 200 200 >> testResult
+
+      - name: Launch Error Handling Test 1
+        continue-on-error: true
+        run: ./307multigrains 10 100 10 0 200 200 200 200 -200 >> testResult
+
+      - name: Launch Error Handling Test 2
+        continue-on-error: true
+        run: ./307multigrains 10 100 10 0 200 200 200 200 a >> testResult
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: |
+            ./testResult
