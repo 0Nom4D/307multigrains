@@ -25,7 +25,7 @@ To use this project, you'll need Python (Version 3.8) and Pytest for Unit Tests:
 
 307multigrains is a B-MAT-500 EPITECH module project.
 
-307multigrains is about the heat coming out of a radiator.
+307multigrains is about optimizing revenues though grains' price.
 
 You can use this program as it follows:
 
@@ -44,6 +44,28 @@ DESCRIPTION
     pc  price of one unit of corn
     pb  price of one unit of barley
     ps  price of one unit of soy
+```
+
+You can also launch unit tests by using the command below at root of the repository:
+
+```textmate
+$> coverage run --rcfile=.coveragerc -m --source=sources/ pytest --capture=sys -rA tests/
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /home/nom4d/EPITECH/307multigrains
+collected ... items
+
+...
+
+==================================== PASSES ====================================
+_____________________                  ...                ______________________
+----------------------------- Captured stdout call -----------------------------
+...
+=========================== short test summary info ============================
+...
+============================== ... passed in ...s ===============================
+$> coverage report -m
+// In order to show coverage report
 ```
 
 ### Coding Style
