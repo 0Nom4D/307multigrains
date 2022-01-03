@@ -1,6 +1,18 @@
 name: PyTest Computing
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'sources/**'
+      - 'tests/**'
+      - '.github/workflows/pytest.yaml'
+      - '.github/workflows/test307.yml'
+  pull_request:
+    paths:
+      - 'sources/**'
+      - 'tests/**'
+      - '.github/workflows/pytest.yaml'
+      - '.github/workflows/test307.yml'
 
 jobs:
   LaunchPytest:
