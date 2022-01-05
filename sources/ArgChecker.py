@@ -3,7 +3,7 @@
 ## EPITECH PROJECT, 2021
 ## 307multigrains
 ## File description:
-## main
+## ArgChecker
 ##
 
 

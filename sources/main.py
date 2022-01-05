@@ -7,6 +7,7 @@
 ##
 
 from sources.ArgChecker import ArgChecker
+from sources.Optimizer import Optimizer
 from sources.exitCode import exitCode
 from sys import argv
 
@@ -35,6 +36,7 @@ def main():
     grainsArgs = ArgChecker(argv[1:])
     if grainsArgs.getArgsList() is None:
         return exitCode.ERROR
+    OptiEngine = Optimizer(grainsArgs.getArgsList())
     return exitCode.OK
 
 
