@@ -35,13 +35,16 @@ class DantzigMatrix:
         lowestPrice = min(self.matrix[-1])
         lowestPriceIdx = self.matrix[-1].index(lowestPrice)
 
+        newList = list()
         storageValues = list()
         for i in range(0, len(self.matrix) - 1):
             if self.matrix[i][lowestPriceIdx] == 0:
                 continue
             storageValues.append((self.matrix[i][0] / self.matrix[i][lowestPriceIdx], (i, lowestPriceIdx)))
-        pivot = [tup for tup in storageValues if tup[0] == min(storageValues)[0]]
-        return pivot[0]
+        for mytuple in storageValues:
+            newList.append((abs(mytuple[0]), mytuple[1]))
+        pivot = [tup for tup in newList if tup[0] == min(newList)[0]]
+        return pivot[-1]
 
     def applyPivot(self, pivotInfos) -> None:
         self.bases[pivotInfos[1][0]] = self._basesStrings[pivotInfos[1][1] - 1]
