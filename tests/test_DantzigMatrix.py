@@ -37,3 +37,10 @@ class TestDantzigMatrix:
     def test_fetchingOrder(self):
         tMatrix = DantzigMatrix([45, 41, 21, 63, 198, 259, 257, 231, 312])
         assert all(x is None for x in tMatrix.getOrder())
+
+    def test_applyWithNegativesNumbers(self):
+        tMatrix = DantzigMatrix([10, 100, 10, 0, 200, 200, 200, 200, 200])
+        while tMatrix.checkGaussEnd():
+            pivotInfos = tMatrix.getPivot()
+            assert not (tMatrix.matrix[pivotInfos[1][0]][pivotInfos[1][1]] <= 0)
+            tMatrix.applyPivot(pivotInfos)
