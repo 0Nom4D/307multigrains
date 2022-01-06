@@ -5,11 +5,15 @@
 ## Makefile
 ##
 
-NAME            =    307multigrains
+NAME            =   307multigrains
 
-RM              =    @rm -f
+RM              =   @rm -f
 
-SOURCES     =    sources/
+SOURCES         =   sources/
+
+TESTS           =   tests/
+
+COVERAGE        =   coverage
 
 all: $(NAME)
 
@@ -23,6 +27,10 @@ clean:
 
 fclean: clean
 		$(RM) $(NAME)
+
+tests_run:
+			$(COVERAGE) run --rcfile=.coveragerc -m --source=$(SOURCES) pytest --capture=sys -rA $(TESTS)
+			$(COVERAGE) report -m
 
 re: fclean all
 
