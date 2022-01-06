@@ -42,7 +42,9 @@ class DantzigMatrix:
                 continue
             storageValues.append((self.matrix[i][0] / self.matrix[i][lowestPriceIdx], (i, lowestPriceIdx)))
         for mytuple in storageValues:
-            newList.append((abs(mytuple[0]), mytuple[1]))
+            if mytuple[0] < 0:
+                continue
+            newList.append(mytuple)
         pivot = [tup for tup in newList if tup[0] == min(newList)[0]]
         return pivot[-1]
 

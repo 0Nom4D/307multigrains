@@ -15,13 +15,8 @@ class Optimizer:
         self.grainsPrices = values[4:]
         self._matrix = DantzigMatrix(values)
 
-        self._matrix.displayMatrix()
         while self._matrix.checkGaussEnd():
-            print()
             self._matrix.applyPivot(self._matrix.getPivot())
-            self._matrix.displayMatrix()
-            print()
-            print()
         self._displaysRessources()
         self._displaysProduction()
         pass
