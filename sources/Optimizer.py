@@ -30,7 +30,7 @@ class Optimizer:
         index = int(0)
 
         for grain in grains:
-            if self._matrix.getProd(grain) == -1:
+            if self._matrix.getProd(grain) == -1 or self._matrix.getProd(grain) == 0:
                 print(f"{grain}: 0 units at ${self.grainsPrices[index]}/unit")
             else:
                 print(f"{grain}: {self._matrix.getProd(grain):.2f} units at ${self.grainsPrices[index]}/unit")
